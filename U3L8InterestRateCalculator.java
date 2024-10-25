@@ -1,12 +1,15 @@
 //Malia Moreno | 21 October 2024//
 package com.mycompany.u3l8interestratecalculator;
 import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class U3L8InterestRateCalculator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         InterestRateCalculator intRateCalc;
         intRateCalc = new InterestRateCalculator();
+        NumberFormat numForm = NumberFormat.getCurrencyInstance(Locale.US);
         
         double paidSoFar = 0;
         
@@ -24,15 +27,12 @@ public class U3L8InterestRateCalculator {
         for(int i = intRateCalc.getRaminingMonths(); i >0; i--){
             //get monthly payment//
             System.out.println("\nPayment for month "+intRateCalc.getRaminingMonths());
-            System.out.println("Montly Payment:\t"+intRateCalc.monthsPay());
+            System.out.println("Montly Payment:\t"+numForm.format(intRateCalc.monthsPay()));
             
             //get amount pai so far//
             paidSoFar = paidSoFar + intRateCalc.getMontsPay();
-            System.out.println("Amount paid so far:\t"+paidSoFar);
-            System.out.println("Amount paid so far:\t"+intRateCalc.getMontsPay());
+            System.out.println("Amount paid so far:\t"+numForm.format(paidSoFar));
             
-            
-
         }
         
         
